@@ -1,5 +1,5 @@
 #
-# Copyright 2020 The Android Open Source Project
+# Copyright 2026 The Android Open Source Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -14,11 +14,11 @@
 # limitations under the License.
 #
 
-DEVICE_PATH := device/motorola/lake
+DEVICE_PATH := device/motorola/doha
 
 # Platform
-TARGET_BOARD_PLATFORM := sdm660
-TARGET_BOOTLOADER_BOARD_NAME := sdm660
+TARGET_BOARD_PLATFORM := trinket
+TARGET_BOOTLOADER_BOARD_NAME := trinket
 TARGET_NO_BOOTLOADER := true
 TARGET_SUPPORTS_64_BIT_APPS := true
 TARGET_USES_UEFI := true
@@ -53,7 +53,7 @@ BOARD_KERNEL_CMDLINE := \
     sched_enable_power_aware=1 \
     service_locator.enable=1 \
     swiotlb=1 \
-    androidboot.hab.product=lake \
+    androidboot.hab.product=doha \
     androidboot.hab.csv=2 \
     androidboot.hab.cid=50 \
     androidboot.selinux=permissive \

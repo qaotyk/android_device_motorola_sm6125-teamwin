@@ -1,8 +1,8 @@
 #
-# Copyright 2020 The Android Open Source Project
+# Copyright 2026 The Android Open Source Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
+# you may not use this fildfhfghgffghfghe except in compliance with the License.
 # You may obtain a copy of the License at
 #
 # http://www.apache.org/licenses/LICENSE-2.0
@@ -45,12 +45,12 @@ PRODUCT_PACKAGES += \
     android.hardware.boot@1.0-impl-wrapper.recovery \
     android.hardware.boot@1.0-impl-wrapper \
     android.hardware.boot@1.0-impl.recovery \
-    bootctrl.sdm660 \
-    bootctrl.sdm660.recovery
+    bootctrl.trinket \
+    bootctrl.trinket.recovery
 
 PRODUCT_PACKAGES += \
-    libgptutils.sdm660 \
-    libgptutils.sdm660.recovery
+    libgptutils.trinket \
+    libgptutils.trinket.recovery
 
 # Packages for decryption
 PRODUCT_PACKAGES += \
@@ -62,9 +62,9 @@ PRODUCT_HOST_PACKAGES += \
 
 # Properties for decryption
 PRODUCT_PROPERTY_OVERRIDES += \
-    ro.hardware.keystore=sdm660 \
-    ro.hardware.gatekeeper=sdm660 \
-    ro.hardware.bootctrl=sdm660 \
+    ro.hardware.keystore=trinket \
+    ro.hardware.gatekeeper=trinket \
+    ro.hardware.bootctrl=trinket \
     ro.build.system_root_image=true
 
 # Soong namespaces

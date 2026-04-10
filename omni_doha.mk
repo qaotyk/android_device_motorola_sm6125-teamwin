@@ -1,5 +1,5 @@
 #
-# Copyright 2020 The Android Open Source Project
+# Copyright 2026 The Android Open Source Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -18,11 +18,11 @@
 $(call inherit-product, vendor/omni/config/common.mk)
 
 # Device identifier. This must come after all inclusions
-PRODUCT_DEVICE := lake
-PRODUCT_NAME := omni_lake
+PRODUCT_DEVICE := doha
+PRODUCT_NAME := omni_doha
 PRODUCT_BRAND := motorola
-PRODUCT_MODEL := moto g(7) plus
+PRODUCT_MODEL := moto g(8) plus
 PRODUCT_MANUFACTURER := Motorola
 
 # Inherit device specific product configuration
-$(call inherit-product, device/motorola/lake/device.mk)
+$(call inherit-product, device/motorola/doha/device.mk)

@@ -1,5 +1,5 @@
 #
-# Copyright 2019 The Android Open Source Project
+# Copyright 2026 The Android Open Source Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -15,9 +15,9 @@
 #
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/omni_lake.mk
+    $(LOCAL_DIR)/omni_doha.mk
 
 COMMON_LUNCH_CHOICES := \
-    omni_lake-eng \
-    omni_lake-userdebug \
-    omni_lake-user
+    omni_doha-eng \
+    omni_doha-userdebug \
+    omni_doha-user
