@@ -74,3 +74,92 @@ PRODUCT_SOONG_NAMESPACES += \
 # tzdata
 PRODUCT_PACKAGES += \
     tzdata_twrp
+
+# Copy files to recovery ramdisk
+
+# Init scripts
+PRODUCT_COPY_FILES += \
+    $(COMMON_PATH)/recovery/root/init.recovery.qcom.rc:recovery/root/init.recovery.qcom.rc \
+    $(COMMON_PATH)/recovery/root/init.recovery.usb.rc:recovery/root/init.recovery.usb.rc
+
+# Configuration files
+PRODUCT_COPY_FILES += \
+    $(COMMON_PATH)/recovery/root/product/etc/fstab.postinstall:recovery/root/product/etc/fstab.postinstall \
+    $(COMMON_PATH)/recovery/root/system/etc/event-log-tags:recovery/root/system/etc/event-log-tags \
+    $(COMMON_PATH)/recovery/root/system/etc/fstab.postinstall:recovery/root/system/etc/fstab.postinstall \
+    $(COMMON_PATH)/recovery/root/system/etc/task_profiles.json:recovery/root/system/etc/task_profiles.json
+
+# Vintf manifests
+PRODUCT_COPY_FILES += \
+    $(COMMON_PATH)/recovery/root/system/etc/vintf/manifest.xml:recovery/root/system/etc/vintf/manifest.xml \
+    $(COMMON_PATH)/recovery/root/vendor/etc/vintf/manifest.xml:recovery/root/vendor/etc/vintf/manifest.xml
+
+# Service binaries
+PRODUCT_COPY_FILES += \
+    $(COMMON_PATH)/recovery/root/system/bin/android.hardware.gatekeeper@1.0-service-qti:recovery/root/system/bin/android.hardware.gatekeeper@1.0-service-qti \
+    $(COMMON_PATH)/recovery/root/system/bin/android.hardware.keymaster@4.0-service-qti:recovery/root/system/bin/android.hardware.keymaster@4.0-service-qti \
+    $(COMMON_PATH)/recovery/root/system/bin/qseecomd:recovery/root/system/bin/qseecomd
+
+# Service init rc files
+PRODUCT_COPY_FILES += \
+    $(COMMON_PATH)/recovery/root/vendor/etc/init/android.hardware.gatekeeper@1.0-service-qti.rc:recovery/root/vendor/etc/init/android.hardware.gatekeeper@1.0-service-qti.rc \
+    $(COMMON_PATH)/recovery/root/vendor/etc/init/android.hardware.keymaster@4.0-service-qti.rc:recovery/root/vendor/etc/init/android.hardware.keymaster@4.0-service-qti.rc \
+    $(COMMON_PATH)/recovery/root/vendor/etc/init/qseecomd.rc:recovery/root/vendor/etc/init/qseecomd.rc
+
+# Gatekeeper & Keymaster HALs and libraries
+PRODUCT_COPY_FILES += \
+    $(COMMON_PATH)/recovery/root/system/lib64/android.hardware.gatekeeper@1.0.so:recovery/root/system/lib64/android.hardware.gatekeeper@1.0.so \
+    $(COMMON_PATH)/recovery/root/system/lib64/android.hardware.keymaster@4.0.so:recovery/root/system/lib64/android.hardware.keymaster@4.0.so \
+    $(COMMON_PATH)/recovery/root/vendor/lib64/hw/android.hardware.gatekeeper@1.0-impl-qti.so:recovery/root/vendor/lib64/hw/android.hardware.gatekeeper@1.0-impl-qti.so \
+    $(COMMON_PATH)/recovery/root/vendor/lib64/libkeymasterdeviceutils.so:recovery/root/vendor/lib64/libkeymasterdeviceutils.so \
+    $(COMMON_PATH)/recovery/root/vendor/lib64/libkeymasterprovision.so:recovery/root/vendor/lib64/libkeymasterprovision.so \
+    $(COMMON_PATH)/recovery/root/vendor/lib64/libkeymasterutils.so:recovery/root/vendor/lib64/libkeymasterutils.so \
+    $(COMMON_PATH)/recovery/root/vendor/lib64/libqtikeymaster4.so:recovery/root/vendor/lib64/libqtikeymaster4.so
+
+# QSEECom & Security libraries
+PRODUCT_COPY_FILES += \
+    $(COMMON_PATH)/recovery/root/vendor/lib64/libQSEEComAPI.so:recovery/root/vendor/lib64/libQSEEComAPI.so \
+    $(COMMON_PATH)/recovery/root/vendor/lib64/libGPreqcancel.so:recovery/root/vendor/lib64/libGPreqcancel.so \
+    $(COMMON_PATH)/recovery/root/vendor/lib64/libGPreqcancel_svc.so:recovery/root/vendor/lib64/libGPreqcancel_svc.so \
+    $(COMMON_PATH)/recovery/root/vendor/lib64/libSecureUILib.so:recovery/root/vendor/lib64/libSecureUILib.so \
+    $(COMMON_PATH)/recovery/root/vendor/lib64/libsecureui_svcsock.so:recovery/root/vendor/lib64/libsecureui_svcsock.so \
+    $(COMMON_PATH)/recovery/root/vendor/lib64/librpmb.so:recovery/root/vendor/lib64/librpmb.so \
+    $(COMMON_PATH)/recovery/root/vendor/lib64/libssd.so:recovery/root/vendor/lib64/libssd.so
+
+# Display & DRM libraries
+PRODUCT_COPY_FILES += \
+    $(COMMON_PATH)/recovery/root/vendor/lib64/libdisplayconfig.qti.so:recovery/root/vendor/lib64/libdisplayconfig.qti.so \
+    $(COMMON_PATH)/recovery/root/vendor/lib64/libdrm.so:recovery/root/vendor/lib64/libdrm.so \
+    $(COMMON_PATH)/recovery/root/vendor/lib64/libdrmfs.so:recovery/root/vendor/lib64/libdrmfs.so \
+    $(COMMON_PATH)/recovery/root/vendor/lib64/libdrmtime.so:recovery/root/vendor/lib64/libdrmtime.so \
+    $(COMMON_PATH)/recovery/root/vendor/lib64/vendor.display.config@1.0.so:recovery/root/vendor/lib64/vendor.display.config@1.0.so \
+    $(COMMON_PATH)/recovery/root/vendor/lib64/vendor.display.config@2.0.so:recovery/root/vendor/lib64/vendor.display.config@2.0.so
+
+# ICU & system libraries
+PRODUCT_COPY_FILES += \
+    $(COMMON_PATH)/recovery/root/system/lib64/libandroidicu.so:recovery/root/system/lib64/libandroidicu.so \
+    $(COMMON_PATH)/recovery/root/system/lib64/libicui18n.so:recovery/root/system/lib64/libicui18n.so \
+    $(COMMON_PATH)/recovery/root/system/lib64/libicuuc.so:recovery/root/system/lib64/libicuuc.so
+
+# Firmware
+PRODUCT_COPY_FILES += \
+    $(COMMON_PATH)/recovery/root/vendor/firmware/aw8695_haptic.bin:recovery/root/vendor/firmware/aw8695_haptic.bin \
+    $(COMMON_PATH)/recovery/root/vendor/firmware/aw8695_rtp.bin:recovery/root/vendor/firmware/aw8695_rtp.bin
+
+# Qualcomm vendor libraries
+PRODUCT_COPY_FILES += \
+    $(COMMON_PATH)/recovery/root/vendor/lib64/libops.so:recovery/root/vendor/lib64/libops.so \
+    $(COMMON_PATH)/recovery/root/vendor/lib64/libqcbor.so:recovery/root/vendor/lib64/libqcbor.so \
+    $(COMMON_PATH)/recovery/root/vendor/lib64/libdiag.so:recovery/root/vendor/lib64/libdiag.so \
+    $(COMMON_PATH)/recovery/root/vendor/lib64/libqdutils.so:recovery/root/vendor/lib64/libqdutils.so \
+    $(COMMON_PATH)/recovery/root/vendor/lib64/libqisl.so:recovery/root/vendor/lib64/libqisl.so \
+    $(COMMON_PATH)/recovery/root/vendor/lib64/libqservice.so:recovery/root/vendor/lib64/libqservice.so \
+    $(COMMON_PATH)/recovery/root/vendor/lib64/libStDrvInt.so:recovery/root/vendor/lib64/libStDrvInt.so \
+    $(COMMON_PATH)/recovery/root/vendor/lib64/librecovery_updater_msm.so:recovery/root/vendor/lib64/librecovery_updater_msm.so \
+    $(COMMON_PATH)/recovery/root/vendor/lib64/libtime_genoff.so:recovery/root/vendor/lib64/libtime_genoff.so \
+    $(COMMON_PATH)/recovery/root/vendor/lib64/vendor.qti.hardware.tui_comm@1.0.so:recovery/root/vendor/lib64/vendor.qti.hardware.tui_comm@1.0.so
+
+
+
+
+
