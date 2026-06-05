@@ -16,14 +16,6 @@
 
 COMMON_PATH ?= device/motorola/sm6125-common
 
-# Platform
-TARGET_BOARD_PLATFORM := trinket
-TARGET_BOOTLOADER_BOARD_NAME := trinket
-TARGET_NO_BOOTLOADER := true
-TARGET_SUPPORTS_64_BIT_APPS := true
-TARGET_USES_UEFI := true
-TARGET_USES_64_BIT_BINDER := true
-
 # Architecure (64-bit Architecture)
 TARGET_ARCH := arm64
 TARGET_ARCH_VARIANT := armv8-a
@@ -40,8 +32,21 @@ TARGET_2ND_CPU_ABI2 := armeabi
 TARGET_2ND_CPU_VARIANT := generic
 TARGET_2ND_CPU_VARIANT_RUNTIME := generic
 
-# Board uses A/B OTA
-AB_OTA_UPDATER := true
+# Bootloader
+TARGET_NO_BOOTLOADER := true
+TARGET_BOOTLOADER_BOARD_NAME := trinket
+TARGET_BOARD_PLATFORM := trinket
+TARGET_BOARD_PLATFORM_GPU := qcom-adreno610
+BOARD_USES_QCOM_HARDWARE := true
+
+# Kernel
+TARGET_NO_KERNEL := false
+
+TARGET_KERNEL_ARCH := arm64
+TARGET_KERNEL_HEADER_ARCH := arm64
+
+BOARD_BOOT_HEADER_VERSION := 2
+BOARD_KERNEL_IMAGE_NAME := Image.gz
 
 # Kernel commandline
 BOARD_KERNEL_CMDLINE := \
@@ -62,10 +67,8 @@ BOARD_KERNEL_CMDLINE := \
 	firmware_class.path=/vendor/firmware_mnt/image
 BOARD_KERNEL_CMDLINE += androidboot.selinux=permissive
 
-BOARD_BOOT_HEADER_VERSION := 1
-BOARD_INCLUDE_RECOVERY_DTBO := true
+# Kernel - Image.gz
 BOARD_KERNEL_BASE := 0x00000000
-BOARD_KERNEL_IMAGE_NAME := Image.gz-dtb
 BOARD_KERNEL_PAGESIZE := 4096
 BOARD_KERNEL_OFFSET := 0x00008000
 BOARD_KERNEL_TAGS_OFFSET := 0x00000100
@@ -81,7 +84,6 @@ TARGET_PREBUILT_KERNEL := $(DEVICE_PATH)/prebuilt/Image.gz-dtb
 
 # Partitions
 BOARD_BUILD_SYSTEM_ROOT_IMAGE := true
-BOARD_USES_RECOVERY_AS_BOOT := true
 
 BOARD_FLASH_BLOCK_SIZE := 131072
 BOARD_BOOTIMAGE_PARTITION_SIZE := 67108864
@@ -94,8 +96,14 @@ TARGET_COPY_OUT_VENDOR := vendor
 TARGET_USERIMAGES_USE_EXT4 := true
 TARGET_USERIMAGES_USE_F2FS := true
 
+# Ramdisk
+BOARD_RAMDISK_OFFSET := 0x01000000
 BOARD_ROOT_EXTRA_SYMLINKS := \
-    /mnt/vendor/persist:/persist
+    /vendor/dsp:/dsp \
+    /vendor/firmware_mnt/image:/firmware/image \
+    /vendor/firmware_mnt/verinfo:/firmware/verinfo \
+    /vendor/fsg:/fsg \
+    /vendor/persist:/persist
 
 # Partitions (listed in the file) to be wiped under recovery.
 TARGET_RECOVERY_WIPE := $(DEVICE_PATH)/recovery.wipe
