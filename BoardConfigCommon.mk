@@ -43,25 +43,24 @@ TARGET_2ND_CPU_VARIANT_RUNTIME := generic
 # Board uses A/B OTA
 AB_OTA_UPDATER := true
 
-# Kernel
+# Kernel commandline
 BOARD_KERNEL_CMDLINE := \
-    console=ttyMSM0,115200,n8 \
-    androidboot.console=ttyMSM0 \
-    earlycon=msm_serial_dm,0xc170000 \
-    androidboot.hardware=qcom \
-    user_debug=31 \
-    msm_rtb.filter=0x37 \
-    ehci-hcd.park=3 \
-    lpm_levels.sleep_disabled=1 \
-    sched_enable_hmp=1 \
-    sched_enable_power_aware=1 \
-    service_locator.enable=1 \
-    swiotlb=1 \
-    androidboot.hab.product=doha \
-    androidboot.hab.csv=2 \
-    androidboot.hab.cid=50 \
-    androidboot.selinux=permissive \
-    androidboot.fastboot=1
+	androidboot.console=ttyMSM0, 115200, n8 \
+	androidboot.hardware=qcom \
+	androidboot.memcg=1 \
+	console=ttyMSM0,115200n8 \
+	earlycon=msm_geni_serial,0x4a90000 \
+	loop.max_part=7 \
+	lpm_levels.sleep_disabled=1 \
+	msm_rtb.filter=0x237 \
+	service_locator.enable=1 \
+	swiotlb=1 \
+	androidboot.usbcontroller=4e00000.dwc3 \
+	cgroup.memory=nokmem,nosocket \
+	ehci-hcd.park=3 \
+	printk.devkmsg=on \
+	firmware_class.path=/vendor/firmware_mnt/image
+BOARD_KERNEL_CMDLINE += androidboot.selinux=permissive
 
 BOARD_BOOT_HEADER_VERSION := 1
 BOARD_INCLUDE_RECOVERY_DTBO := true
