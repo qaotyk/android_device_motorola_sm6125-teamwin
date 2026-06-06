@@ -114,6 +114,7 @@ BOARD_ROOT_EXTRA_SYMLINKS := \
     /vendor/persist:/persist
 
 # Partitions (listed in the file) to be wiped under recovery.
+TARGET_RECOVERY_FSTAB := $(COMMON_PATH)/recovery.fstab
 TARGET_RECOVERY_WIPE := $(DEVICE_PATH)/recovery.wipe
 
 # Encryption
