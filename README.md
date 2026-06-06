@@ -1,39 +1,41 @@
-# TWRP Device configuration for Motorola Moto G8 Plus
+# TWRP Common Device configuration for Motorola SM6125 (trinket) Devices
 
-## Device specification
+This repository contains the common device configuration for Team Win Recovery Project (TWRP) on Motorola Snapdragon 665 (SM6125/trinket) devices.
 
-Basic   | Spec Sheet
--------:|:------------------------
-CPU     | Octa-core 2.0 GHz Kryo 260
-CHIPSET | Qualcomm SM6125 Snapdragon 665
-GPU     | Adreno 610
-Memory  | 4 GB LPDDR4X
-Shipped Android Version | 9.0 (Pie)
-Storage | 64 GB eMMC 5.1
-Battery | 4000 mAh
-Dimensions | 158.4 x 75.8 x 9.1 mm
-Display | 1080 x 2280 pixels, 19:9 ratio
-Rear Camera  | 48 MP, f/1.7, PDAF, Laser AF, 16 MP UltraWide, f/2.2 + Action Cam, 5 MP depth sensor, f/2.2
-Front Camera | 12 MP, 1.25µm
+## Supported Devices
 
-![Device Picture](https://cdn2.gsmarena.com/vv/pics/motorola/motorola-moto-g8-plus-1.jpg)
+| Picture | Product name | Codename | SoC | Frequency | Architecture | GPU | RAM | Storage | Battery | Resolution | Ratio | Shipped Android Version |
+| :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
+| ![motorola](https://fdn2.gsmarena.com/vv/bigpic/motorola-moto-g8-plus.jpg) | Moto G8 Plus | doha | Snapdragon 665 | 2.0 GHz | 64-bit | Adreno 610 | 4 GB | 64 GB | 4000 mAh | 1080x2280 | 19:9 | 9.0 (Pie) |
+| ![motorola](https://fdn2.gsmarena.com/vv/bigpic/motorola-moto-g-power.jpg) | Moto G Power (2020) | sofia | Snapdragon 665 | 2.0 GHz | 64-bit | Adreno 610 | 4 GB | 64 GB | 5000 mAh | 1080x2300 | 19:9 | 10 (Q) |
+| ![motorola](https://fdn2.gsmarena.com/vv/bigpic/motorola-moto-g-stylus-.jpg) | Moto G Stylus / G Pro | sofiap | Snapdragon 665 | 2.0 GHz | 64-bit | Adreno 610 | 4 GB | 128 GB | 4000 mAh | 1080x2300 | 19:9 | 10 (Q) |
+| ![motorola](https://fdn2.gsmarena.com/vv/bigpic/motorola-moto-g-power-r.jpg) | Moto G8 Power | sofiar | Snapdragon 665 | 2.0 GHz | 64-bit | Adreno 610 | 4 GB | 64 GB | 5000 mAh | 1080x2300 | 19:9 | 10 (Q) |
+| ![motorola](https://fdn2.gsmarena.com/vv/bigpic/motorola-moto-g8.jpg) | Moto G8 / Moto G Fast | rav | Snapdragon 665 | 2.0 GHz | 64-bit | Adreno 610 | 3/4 GB | 32/64 GB | 4000 mAh | 720x1560 | 19.5:9 | 10 (Q) |
 
-### Kernel Source
-Check here: https://github.com
+## Compilation Guide 🔧
 
-### How to compile
-
+First, enter your work environment. This is an example to build TWRP using the Minimal TWRP Manifest:
+```bash
+cd ~/twrp-12.1
 ```
+
+Then clone this repository into `device/motorola/sm6125-common`:
+```bash
+git clone https://github.com/qaotyk/android_device_motorola_sm6125-teamwin.git device/motorola/sm6125-common
+```
+
+Additionally, ensure you have your device-specific repository cloned (e.g. `device/motorola/doha`).
+
+To compile the recovery image:
+```bash
 export ALLOW_MISSING_DEPENDENCIES=true
 . build/envsetup.sh
-lunch omni_doha-eng
-mka clean && mka recoveryimage
+lunch twrp_<codename>-eng
+mka recoveryimage
 ```
 
 ### Test build
-
+To test the compiled recovery without flashing:
+```bash
+fastboot boot out/target/product/<codename>/recovery.img
 ```
-cd out/target/product/doha
-fastboot boot recovery.img
-```
-NOTE: TWRP test. I not sure if everything works fine. Maybe test this in local repo :)
