@@ -81,8 +81,9 @@ extern "C" {
 #define PTN_XBL                         "xbl"
 #define PTN_SWAP_LIST                   PTN_XBL, \
             "abl", "cmnlib", "cmnlib64", "devcfg", \
-            "dtbo", "fsg", "hyp", "keymaster", "pmic", \
-            "prov", "rpm", "storsec", "tz", "vbmeta"
+            "dtbo", "fsg", "hyp", "keymaster", "prov", \
+            "qupfw", "rpm", "tz", "uefisecapp", "vbmeta", \
+            "xbl_config"
 
 #define AB_PTN_LIST PTN_SWAP_LIST, "bluetooth", "boot", "dsp", "logo", "modem", "oem", "system", "vendor"
 #define BOOT_DEV_DIR    "/dev/block/bootdevice/by-name"
