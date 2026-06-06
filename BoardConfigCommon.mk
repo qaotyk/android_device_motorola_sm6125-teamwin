@@ -94,8 +94,6 @@ BOARD_MKBOOTIMG_ARGS := --header_version $(BOARD_BOOT_HEADER_VERSION)
 BOARD_MKBOOTIMG_ARGS += --kernel_offset $(BOARD_KERNEL_OFFSET)
 BOARD_MKBOOTIMG_ARGS += --ramdisk_offset $(BOARD_RAMDISK_OFFSET)
 BOARD_MKBOOTIMG_ARGS += --tags_offset $(BOARD_KERNEL_TAGS_OFFSET)
-BOARD_PREBUILT_DTBOIMAGE := $(DEVICE_PATH)/prebuilt/dtbo.img
-TARGET_PREBUILT_KERNEL := $(DEVICE_PATH)/prebuilt/Image.gz-dtb
 
 # Partitions
 BOARD_FLASH_BLOCK_SIZE := 131072
@@ -115,7 +113,6 @@ BOARD_ROOT_EXTRA_SYMLINKS := \
 
 # Partitions (listed in the file) to be wiped under recovery.
 TARGET_RECOVERY_FSTAB := $(COMMON_PATH)/recovery.fstab
-TARGET_RECOVERY_WIPE := $(DEVICE_PATH)/recovery.wipe
 
 # Encryption
 BOARD_USES_QCOM_FBE_DECRYPTION := true
