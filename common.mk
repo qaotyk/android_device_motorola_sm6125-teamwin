@@ -78,6 +78,11 @@ PRODUCT_PACKAGES += \
     qcom_decrypt \
     qcom_decrypt_fbe
 
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.crypto.volume.filenames_mode=aes-256-cts \
+    ro.crypto.allow_encrypt_override=true \
+    keymaster_ver=4.0
+
 PRODUCT_HOST_PACKAGES += \
     libandroidicu
 
