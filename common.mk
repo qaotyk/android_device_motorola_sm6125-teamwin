@@ -59,6 +59,13 @@ PRODUCT_PACKAGES += \
     libgptutils.trinket \
     libgptutils.trinket.recovery
 
+# Fastbootd
+PRODUCT_PACKAGES += \
+    android.hardware.fastboot@1.1-impl \
+    android.hardware.fastboot@1.1-service \
+    android.hardware.fastboot@1.1-service.recovery \
+    fastbootd
+
 # Packages for decryption
 PRODUCT_PACKAGES += \
     qcom_decrypt \
