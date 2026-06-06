@@ -23,7 +23,12 @@ AB_OTA_UPDATER := true
 AB_OTA_PARTITIONS += \
     boot \
     dtbo \
+    odm \
+    product \
     system \
+    system_ext \
+    vbmeta \
+    vbmeta_system \
     vendor
 
 AB_OTA_POSTINSTALL_CONFIG += \
@@ -37,6 +42,8 @@ PRODUCT_PACKAGES += \
     update_engine \
     update_engine_sideload \
     update_verifier
+
+TARGET_ENFORCE_AB_OTA_PARTITION_LIST := true
 
 # Boot control HAL
 PRODUCT_PACKAGES += \
@@ -64,12 +71,11 @@ PRODUCT_HOST_PACKAGES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.hardware.keystore=trinket \
     ro.hardware.gatekeeper=trinket \
-    ro.hardware.bootctrl=trinket \
-    ro.build.system_root_image=true
+    ro.hardware.bootctrl=trinket
 
 # Soong namespaces
 PRODUCT_SOONG_NAMESPACES += \
-    $(LOCAL_PATH)
+    $(COMMON_PATH)
 
 # tzdata
 PRODUCT_PACKAGES += \
@@ -158,8 +164,3 @@ PRODUCT_COPY_FILES += \
     $(COMMON_PATH)/recovery/root/vendor/lib64/librecovery_updater_msm.so:recovery/root/vendor/lib64/librecovery_updater_msm.so \
     $(COMMON_PATH)/recovery/root/vendor/lib64/libtime_genoff.so:recovery/root/vendor/lib64/libtime_genoff.so \
     $(COMMON_PATH)/recovery/root/vendor/lib64/vendor.qti.hardware.tui_comm@1.0.so:recovery/root/vendor/lib64/vendor.qti.hardware.tui_comm@1.0.so
-
-
-
-
-
