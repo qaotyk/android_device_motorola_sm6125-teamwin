@@ -36,6 +36,8 @@
 /odm            ext4    odm                                                                             display="Odm";logical;slotselect
 /metadata       ext4    /dev/block/bootdevice/by-name/metadata                                          flags=display="Metadata";wrappedkey
 /data           f2fs    /dev/block/bootdevice/by-name/userdata                                          flags=fileencryption=aes-256-xts:aes-256-cts:v2+inlinecrypt_optimized+wrappedkey_optimized,keydirectory=/metadata/vold/metadata_encryption
-/dev/block/mmcblk0p1                       /sdcard         vfat    nosuid,nodev                                                    wait
-/dev/block/bootdevice/by-name/boot         /boot           emmc    defaults                                                        defaults
-/dev/block/bootdevice/by-name/misc         /misc           emmc    defaults                                                        defaults
+
+/boot           emmc    /dev/block/bootdevice/by-name/boot                                              flags=slotselect
+/dtbo           emmc    /dev/block/bootdevice/by-name/dtbo                                              flags=display="DTBO";backup=1;flashimg=1;slotselect
+/persist        ext4    /dev/block/bootdevice/by-name/persist                                           flags=display="Persist";backup=1
+/misc           emmc    /dev/block/bootdevice/by-name/misc
