@@ -86,6 +86,23 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_HOST_PACKAGES += \
     libandroidicu
 
+# Lights
+PRODUCT_PACKAGES += \
+    android.hardware.light@2.0-impl \
+    android.hardware.light@2.0-service.recovery
+
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.hardware.lights=trinket
+
+# Health
+PRODUCT_PACKAGES += \
+    android.hardware.health@2.0-impl \
+    android.hardware.health@2.0-service.recovery
+
+PRODUCT_PROPERTY_OVERRIDES += \
+    sys.usb.controller=4e00000.dwc3 \
+    ro.charger.enable_suspend=true
+
 # Properties for decryption
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.hardware.keystore=trinket \
