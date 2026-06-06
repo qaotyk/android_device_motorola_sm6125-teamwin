@@ -63,6 +63,9 @@ PRODUCT_PACKAGES += \
     libgptutils.trinket \
     libgptutils.trinket.recovery
 
+# Dynamic Partitions
+PRODUCT_USE_DYNAMIC_PARTITIONS := true
+
 # Fastbootd
 PRODUCT_PACKAGES += \
     android.hardware.fastboot@1.1-impl \
